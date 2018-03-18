@@ -1,5 +1,3 @@
-package homework2;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +33,8 @@ public class Recursion {
 
 	/**
 	 * 
-	 * @param n the Fibonacci numbers from 1 to n
+	 * @param n
+	 *            the Fibonacci numbers from 1 to n
 	 * @return the fibonacci number.
 	 */
 	public static long fibonacci(int n) {
@@ -54,7 +53,7 @@ public class Recursion {
 	 * @param start
 	 * @param second
 	 * @param count
-	 * @return 
+	 * @return
 	 */
 	private static long help(int start, int second, int count) {
 		if (count <= 0) {
