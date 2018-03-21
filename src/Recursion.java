@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Recursion class containing unique method that remove duplicate consecutive
+ * items from a list and fibonacci method that have helper method.
  * 
  * @author Kanchanok Kannee
  *
@@ -14,15 +16,14 @@ public class Recursion {
 	 * duplicates are removed. Objects are compared using their own equals
 	 * method.
 	 * 
-	 * @param list
-	 *            of any kind of object. The elements are not null.
+	 * @param list of any kind of object. The elements are not null.
 	 * @return reference to the list parameter with consecutive duplicates
 	 *         removed.
 	 */
 	public static List<String> unique(List<String> list) {
 		if (list.size() <= 1)
 			return list;
-		if (list.get(0) == list.get(1)) {
+		if (list.get(0).equals(list.get(1))) {
 			list.remove(0);
 			unique(list);
 		} else {
@@ -32,41 +33,40 @@ public class Recursion {
 	}
 
 	/**
+	 * Recursive function of Fibonacci.
 	 * 
-	 * @param n
-	 *            the Fibonacci numbers from 1 to n
+	 * @param n is sequence number that user want to know.
 	 * @return the fibonacci number.
 	 */
 	public static long fibonacci(int n) {
 		// the base case
 		if (n <= 0)
-			return n;
+			return 0;
 		if (n == 1 || n == 2)
 			return 1;
 		// the recursive step
-		return help(0, 1, n);
+		return helper(0, 1, n);
 	}
 
 	/**
 	 * The helper method to perform recursion.
 	 * 
-	 * @param start
-	 * @param second
-	 * @param count
-	 * @return
+	 * @param result is fibonacci number.
+	 * @param second is sum of fibonacci number.
+	 * @param count is the number of fibonacci
+	 * @return fibonacci number.
 	 */
-	private static long help(int start, int second, int count) {
+	private static long helper(int result, int second, int count) {
 		if (count <= 0) {
-			return start;
+			return result;
 		}
-		return help(second, start + second, count - 1);
+		return helper(second, result + second, count - 1);
 	}
 
 	/**
 	 * Test the programs.
 	 * 
-	 * @param args
-	 *            not used.
+	 * @param args not used.
 	 */
 	public static void main(String[] args) {
 		List<String> list = new ArrayList<>();
@@ -76,7 +76,13 @@ public class Recursion {
 		list.add("c");
 		list.add("c");
 		list.add("b");
+		list.add("3");
+		list.add("1");
+		list.add("2");
+		list.add("1");
 		System.out.println(unique(list));
+		System.out.println("------------------");
+		System.out.print("Fibonacci : ");
 		System.out.println(fibonacci(7));
 	}
 
